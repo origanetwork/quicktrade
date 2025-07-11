@@ -8,7 +8,7 @@ function App() {
       <div className="relative z-10 flex flex-col items-center justify-start min-h-screen px-4 pt-8 pb-8">
         {/* Logo */}
         <div className="mx-auto">
-          <img src="/public/velocity.png" alt="velocity-logo" className='w-35 h-25 mr-4' />
+          <img src="/velocity.png" alt="velocity-logo" className='w-35 h-25 mr-4' />
         </div>
         
         {/* Subscriber count */}
@@ -86,7 +86,7 @@ function App() {
       
       {/* Large bottom logo watermark */}
       <div className="absolute bottom-20 left-1/2 -translate-x-[65%] scale-250 lg:-bottom-12 lg:left-2/4 transform lg:-translate-x-[55%] md:bottom-20 md:left-1/2  md:-translate-x-[60%] md:scale-160 lg:scale-100  opacity-5 pointer-events-none">
-         <img src="/public/velocity.png" alt="velocity-logo" className='w-full h-full mr-4' />
+         <img src="/velocity.png" alt="velocity-logo" className='w-full h-full mr-4' />
       </div>
       
       {/* Footer */}
