@@ -1,16 +1,29 @@
-import React from 'react';
-
-
+import React, { useEffect } from 'react';
+import ReactPixel from 'react-facebook-pixel';
 
 function App() {
 
-  const handleredirect = () => {
+  useEffect(() => {
+    // Initialize Pixel
+    ReactPixel.init('1274837454151654');
 
-    window.location.href = "https://t.me/VelocityCapitalOfficial";
+    // Track page view
+    ReactPixel.pageView();
+  }, []);
+ 
 
-  } 
+  const handleRedirect = () => {
+    // Track custom event
+    ReactPixel.track('clickedthebutton');
+
+    // Wait 200ms before redirect for tracking to fire
+    setTimeout(() => {
+      window.location.href = 'https://t.me/VelocityCapitalOfficial';
+    }, 200);
+  };
+  
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-gray-700 relative overflow-hidden" onClick={handleredirect}>
+    <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-gray-700 relative overflow-hidden" onClick={handleRedirect}>
       
       {/* Main content */}
       <div className="relative z-10 flex flex-col items-center justify-start min-h-screen px-4 pt-8 pb-8">
