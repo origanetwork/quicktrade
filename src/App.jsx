@@ -3,9 +3,11 @@ import ReactPixel from 'react-facebook-pixel';
 
 function App() {
 
+  
+
   useEffect(() => {
     // Initialize Pixel
-    ReactPixel.init('127483744151654');
+    ReactPixel.init(import.meta.env.VITE_META_PIXEL_ID);
 
     // Track page view to both Pixel and CAPI
     ReactPixel.pageView();

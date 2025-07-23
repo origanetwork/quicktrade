@@ -16,9 +16,9 @@ export default async function handler(req, res) {
       } = req.body;
   
       // Get environment variables
-      console.log(process.env);
       const PIXEL_ID = process.env.META_PIXEL_ID;
       const ACCESS_TOKEN = process.env.META_ACCESS_TOKEN;
+      console.log(PIXEL_ID, ACCESS_TOKEN);
   
       if (!PIXEL_ID || !ACCESS_TOKEN) {
         throw new Error('Missing Meta Pixel ID or Access Token');
