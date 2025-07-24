@@ -60,7 +60,7 @@ function App() {
 
   const handleRedirect = () => {
     // Track custom event to both Pixel and CAPI
-    ReactPixel.track('clickedthebutton');
+    ReactPixel.trackCustom('clickedthebutton');
     trackCAPI('clickedthebutton', {
       button_type: 'telegram_redirect',
       destination: 'VelocityCapitalOfficial'
