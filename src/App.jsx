@@ -65,10 +65,12 @@ function App() {
       button_type: 'telegram_redirect',
       destination: 'VelocityCapitalOfficial'
     });
+    console.log(import.meta.env.VITE_META_TELEGRAM);
+    
 
     // Wait 200ms before redirect for tracking to fire
     setTimeout(() => {
-      window.location.href = 'https://t.me/VelocityCapitalOfficial';
+      window.location.href = import.meta.env.VITE_META_TELEGRAM || "https://t.me/+dSsRnfA4EdM0MmRh";
     }, 200);
   };
 
