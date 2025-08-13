@@ -1,79 +1,85 @@
-import React, { useEffect } from 'react';
 import ReactPixel from 'react-facebook-pixel';
 
 function App() {
 
-  
+  // useEffect(() => {
+  //   // Initialize Pixel
+  //   ReactPixel.init(import.meta.env.VITE_META_PIXEL_ID);
 
-  useEffect(() => {
-    // Initialize Pixel
-    ReactPixel.init(import.meta.env.VITE_META_PIXEL_ID);
+  //   // Track page view to both Pixel and CAPI
+  //   ReactPixel.pageView();
+  //   trackCAPI('PageView');
+  // }, []);
 
-    // Track page view to both Pixel and CAPI
-    ReactPixel.pageView();
-    trackCAPI('PageView');
-  }, []);
-  const trackCAPI = async (eventName, customData = {}) => {
-    try {
-      await fetch('/api/track', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          event_name: eventName,
-          event_time: Math.floor(Date.now() / 1000),
-          action_source: 'website',
-          user_data: {
-            client_ip_address: await getClientIP(),
-            client_user_agent: navigator.userAgent,
-            fbc: getCookie('_fbc'),
-            fbp: getCookie('_fbp')
-          },
-          custom_data: customData,
-          event_source_url: window.location.href
-        })
-      });
-    } catch (error) {
-      console.error('CAPI tracking error:', error);
-    }
-  };
-  const getClientIP = async () => {
-    try {
-      const response = await fetch('https://api.ipify.org?format=json');
-      const data = await response.json();
-      return data.ip;
-    } catch {
-      return null;
-    }
-  };
+  // const trackCAPI = async (eventName, customData = {}) => {
+  //   try {
+  //     await fetch('/api/track', {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       body: JSON.stringify({
+  //         event_name: eventName,
+  //         event_time: Math.floor(Date.now() / 1000),
+  //         action_source: 'website',
+  //         user_data: {
+  //           client_ip_address: await getClientIP(),
+  //           client_user_agent: navigator.userAgent,
+  //           fbc: getCookie('_fbc'),
+  //           fbp: getCookie('_fbp')
+  //         },
+  //         custom_data: customData,
+  //         event_source_url: window.location.href
+  //       })
+  //     });
+  //   } catch (error) {
+  //     console.error('CAPI tracking error:', error);
+  //   }
+  // };
 
-  // Get cookie value
-  const getCookie = (name) => {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return parts.pop().split(';').shift();
-    return null;
-  };
+  // const getClientIP = async () => {
+  //   try {
+  //     const response = await fetch('https://api.ipify.org?format=json');
+  //     const data = await response.json();
+  //     return data.ip;
+  //   } catch {
+  //     return null;
+  //   }
+  // };
 
+  // //Get cookie value
+  // const getCookie = (name) => {
+  //   const value = `; ${document.cookie}`;
+  //   const parts = value.split(`; ${name}=`);
+  //   if (parts.length === 2) return parts.pop().split(';').shift();
+  //   return null;
+  // };
+
+
+
+  // const handleRedirect = () => {
+  //   // Track custom event to both Pixel and CAPI
+  //   ReactPixel.trackCustom('clickedthebutton');
+  //   trackCAPI('clickedthebutton', {
+  //     button_type: 'telegram_redirect',
+  //     destination: 'QuickTrade'    // TODO: Replace with actual destination if needed
+  //   });
+  //   console.log(import.meta.env.VITE_META_TELEGRAM);
+
+
+  //   // Wait 200ms before redirect for tracking to fire
+  //   setTimeout(() => {
+  //     window.location.href = import.meta.env.VITE_META_TELEGRAM || "https://t.me/+dSsRnfA4EdM0MmRh";  
+  //   }, 200);
+  // };
 
 
   const handleRedirect = () => {
-    // Track custom event to both Pixel and CAPI
-    ReactPixel.trackCustom('clickedthebutton');
-    trackCAPI('clickedthebutton', {
-      button_type: 'telegram_redirect',
-      destination: 'VelocityCapitalOfficial'
-    });
-    console.log(import.meta.env.VITE_META_TELEGRAM);
-    
-
-    // Wait 200ms before redirect for tracking to fire
-    setTimeout(() => {
-      window.location.href = import.meta.env.VITE_META_TELEGRAM || "https://t.me/+dSsRnfA4EdM0MmRh";
-    }, 200);
-  };
-
+  console.log(import.meta.env.VITE_META_TELEGRAM);
+  
+  // Immediate redirect without tracking
+  window.location.href = import.meta.env.VITE_META_TELEGRAM || "https://t.me/quictradepremium"; 
+};
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-gray-700 relative overflow-hidden" onClick={handleRedirect}>
@@ -82,7 +88,7 @@ function App() {
       <div className="relative z-10 flex flex-col items-center justify-start min-h-screen px-4 pt-8 pb-8">
         {/* Logo */}
         <div className="mx-auto">
-          <img src="/velocity.png" alt="velocity-logo" className='w-35 h-25 mr-4' />
+          <img src="/quick-trade-logo.png" alt="quick-trade-logo" className='w-35 h-35 mr-4' />
         </div>
 
         {/* Subscriber count */}
@@ -96,44 +102,52 @@ function App() {
         </h1>
 
         {/* Features card */}
-        <div className="backdrop-blur-md bg-white/10 rounded-2xl p-8 mb-10 md:mb-12 max-w-md w-full shadow-2xl border border-white/20">
-          <h2 className="text-white text-xl font-semibold mb-4">Features:</h2>
+        <div className="backdrop-blur-md bg-white/10 rounded-2xl p-8 mb-10 md:mb-12 max-w-md w-full shadow-2xl border-2 border-blue-400">
+          <h2 className="text-white text-xl font-semibold mb-4">Benefits:</h2>
 
           <div className="space-y-2">
             <div className="flex items-center gap-0">
-              <span className="text-blue-400 text-lg">💰</span>
-              <span className="text-gray-300 text-sm leading-relaxed">
-                Earn income while sleeping
-              </span>
-            </div>
-
-            <div className="flex items-center gap-0">
               <span className="text-green-400 text-lg">✅</span>
               <span className="text-gray-300 text-sm leading-relaxed">
-                15-25% Monthly ROI
-              </span>
-            </div>
-
-            <div className="flex items-center gap-0">
-              <span className="text-purple-400 text-lg">🏗️</span>
-              <span className="text-gray-300 text-sm leading-relaxed">
-                Unlock your path to financial freedom
+                Spot and future signals available all exchanges
               </span>
             </div>
 
             <div className="flex items-center gap-0">
               <span className="text-yellow-400 text-lg">📊</span>
               <span className="text-gray-300 text-sm leading-tight">
-                Tired of trading manually? Our EA can help
+                Easy to use signal
               </span>
             </div>
 
             <div className="flex items-center gap-0">
               <span className="text-orange-400 text-lg">⚡</span>
               <span className="text-gray-300 text-sm leading-relaxed">
-                Our services are 100% Free
+                Daily 1-3 signals
               </span>
             </div>
+
+            <div className="flex items-center gap-0">
+              <span className="text-purple-400 text-lg">🏗️</span>
+              <span className="text-gray-300 text-sm leading-relaxed">
+                Proper support & guiding
+              </span>
+            </div>
+
+            <div className="flex items-center gap-0">
+              <span className="text-blue-400 text-lg">💰</span>
+              <span className="text-gray-300 text-sm leading-relaxed">
+                Work properly build profits consistenly
+              </span>
+            </div>
+
+            <div className="flex items-center gap-0">
+              <span className="text-orange-400 text-lg">🛡️</span>
+              <span className="text-gray-300 text-sm leading-relaxed">
+                Trust the process & Trust me
+              </span>
+            </div>
+
           </div>
         </div>
 
@@ -154,20 +168,20 @@ function App() {
 
           {/* Logo watermark positioned at bottom of button */}
           <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-4 opacity-10 pointer-events-none">
-            {/* <img src="/public/velocity.png" alt="velocity-logo" className='w-35 h-25 mr-4' /> */}
+            {/* <img src="/public/quick-trade.png" alt="quick-trade-logo" className='w-35 h-25 mr-4' /> */}
           </div>
         </div>
       </div>
 
       {/* Large bottom logo watermark */}
-      <div className="absolute bottom-20 left-1/2 -translate-x-[65%] scale-250 lg:-bottom-12 lg:left-2/4 transform lg:-translate-x-[55%] md:bottom-20 md:left-1/2  md:-translate-x-[60%] md:scale-160 lg:scale-100  opacity-5 pointer-events-none">
-        <img src="/velocity.png" alt="velocity-logo" className='w-full h-full mr-4' />
+      <div className="absolute bottom-20 left-1/2 -translate-x-[50%] scale-250 lg:-bottom-12 transform lg:-translate-x-[50%] md:bottom-20 md:left-1/2  md:-translate-x-[60%] md:scale-160 lg:scale-100  opacity-5 pointer-events-none">
+        <img src="/quick-trade-logo.png" alt="quick-trade-logo" className='w-full h-full' />
       </div>
 
       {/* Footer */}
       <div className="absolute bottom-4 left-0 right-0 text-center z-20">
         <p className="text-gray-500 text-sm">
-          © 2025 Velocity. All rights reserved.
+          © 2025 Quick trade. All rights reserved.
         </p>
       </div>
     </div>
