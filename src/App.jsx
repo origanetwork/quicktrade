@@ -1,4 +1,3 @@
-// import ReactPixel from 'react-facebook-pixel';
 
 function App() {
 
