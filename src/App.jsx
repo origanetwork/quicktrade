@@ -102,7 +102,7 @@ function App() {
         </h1>
 
         {/* Features card */}
-        <div className="backdrop-blur-md bg-white/10 rounded-2xl p-8 mb-10 md:mb-12 max-w-md w-full shadow-2xl border-2 border-blue-400">
+        <div className="backdrop-blur-xs bg-white/10 rounded-2xl p-8 mb-10 md:mb-12 max-w-md w-full shadow-2xl border-2 border-blue-400">
           <h2 className="text-white text-xl font-semibold mb-4">Benefits:</h2>
 
           <div className="space-y-2">
@@ -174,7 +174,7 @@ function App() {
       </div>
 
       {/* Large bottom logo watermark */}
-      <div className="absolute bottom-20 left-1/2 -translate-x-[50%] scale-250 lg:-bottom-12 transform lg:-translate-x-[50%] md:bottom-20 md:left-1/2  md:-translate-x-[60%] md:scale-160 lg:scale-100  opacity-5 pointer-events-none">
+      <div className="absolute bottom-20 left-1/2 -translate-x-[50%] scale-250 lg:mb-12 transform lg:-translate-x-[50%] md:mb-20 md:left-1/2  md:-translate-x-[60%] md:scale-160 lg:scale-100  opacity-5 pointer-events-none">
         <img src="/quick-trade-logo.png" alt="quick-trade-logo" className='w-full h-full' />
       </div>
 
