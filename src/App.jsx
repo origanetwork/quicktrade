@@ -1,4 +1,4 @@
-import ReactPixel from 'react-facebook-pixel';
+// import ReactPixel from 'react-facebook-pixel';
 
 function App() {
 
